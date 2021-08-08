@@ -1,0 +1,19 @@
+
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note: server responds with 302 redirect
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+
+note over browser:
+browser gets the notes page again .
+The browser also has to GET the CSS and main.js again. When main.js
+gets the notes from data.json, the new note is now in the list.
+end note
+
+
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+browser->server: HTTP GET  https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser:[{"content":"Hi","date":"2021-08-08T02:52:25.533Z"},{"content":"hello vietnamese",...a~
